@@ -1,0 +1,1403 @@
+<template>
+  <div id="app">
+    <div class="wrapper">
+      <form-header></form-header>
+
+      <b-container>
+        <form action="#" class="form-reg" @submit.prevent novalidate>
+          <router-view></router-view>
+          <!-- <step-30-70
+            class="step step-0"
+            v-show="currentStep === 0"
+            :stepNum="0"
+            :amountSteps="amountSteps"
+          >
+            <template v-slot:col1-content>
+              <tit-h3> Документы / телефон </tit-h3>
+              <v-text>
+                Для оформления Договора Вам понадобятся мобильный телефон и
+                всего несколько документов:
+              </v-text>
+              <div class="fw-bold mb-2">
+                <custom-input>
+                  <input type="radio" checked />
+                </custom-input>
+                Паспорт гражданина РФ
+              </div>
+              <div class="fw-bold mb-2">
+                <custom-input>
+                  <input type="radio" checked />
+                </custom-input>
+                СНИЛС
+              </div>
+              <div class="fw-bold mb-2">
+                <custom-input>
+                  <input type="radio" checked />
+                </custom-input>
+                ИНН
+              </div>
+            </template>
+            <template v-slot:col2-content>
+              <tit-h3> Условия оформления Договора </tit-h3>
+              <v-text>
+                Договор негосударственного пенсионного обеспечения (далее —
+                Договор) будет оформлен непосредственно на сайте. Вам не
+                потребуется лично приходить в офис Фонда. Факт оформления
+                Договора будет подтвержден Вашей простой электронной подписью
+                (далее — ПЭП)
+              </v-text>
+              <v-text>
+                <custom-input type="checkbox" class="me-3">
+                  <input type="checkbox" />
+                </custom-input>
+                Даю свое согласие на присоединение к
+                <a class="btn-link">Соглашению о ПЭП</a>
+              </v-text>
+              <v-text>
+                Оформить Договор онлайн Вы можете в любой момент, если являетесь
+                совершеннолетним гражданином Российской Федерации, не являетесь
+                резидентом иностранного государства и хотите оформить Договор в
+                свою пользу.
+              </v-text>
+            </template>
+            <template v-slot:button-prev>
+              <button class="form-reg__button w-auto _add" @click="addStep">
+                далее
+              </button>
+            </template>
+          </step-30-70> -->
+
+          <!-- <step-30-70
+            class="step step-1"
+            :stepNum="1"
+            :amountSteps="amountSteps"
+            v-show="currentStep === 1"
+          >
+            <template v-slot:title>Первый шаг</template>
+
+            <template v-slot:col1-content>
+              <tit-h3 class="mb-4"> Основные данные </tit-h3>
+              <div class="form-inputs__row order-md-0 order-1 input-wrapper">
+                <v-input placeholder="Фамилия"></v-input>
+              </div>
+              <div class="form-inputs__row order-md-1 order-2 input-wrapper">
+                <v-input placeholder="Имя"></v-input>
+              </div>
+              <div
+                class="
+                  form-inputs__row
+                  order-md-2 order-3
+                  row
+                  align-items-center
+                  ms-0
+                  me-0
+                "
+              >
+                <v-input
+                  ref="patronymicInput"
+                  placeholder="Отчество"
+                  class="col-md-8 col-8"
+                ></v-input>
+                <span class="col-md-4 col-4 _no text-end">
+                  <custom-input type="checkbox">
+                    <input type="checkbox" />
+                  </custom-input>
+                  нет
+                </span>
+              </div>
+              <div class="form-inputs__row order-md-3 order-0 row">
+                <label for="sex-man" class="col-6 d-flex">
+                  <custom-input class="me-2">
+                    <input type="radio" name="sex" id="sex-man" />
+                  </custom-input>
+                  <span> мужчина </span>
+                </label>
+                <label for="sex-woman" class="col-6 d-flex justify-content-end">
+                  <custom-input class="me-2">
+                    <input type="radio" name="sex" id="sex-woman" />
+                  </custom-input>
+                  <span> женщина </span>
+                </label>
+              </div>
+            </template>
+
+            <template v-slot:col2-content>
+              <tit-h3 class="mb-4"> Паспортные данные, СНИЛС </tit-h3>
+              <b-row class="flex-wrap mb-4" style="row-gap: 30px">
+                <div class="col-md-3 col-6 order-0 input-wrapper">
+                  <v-input placeholder="СНИЛС"></v-input>
+                </div>
+                <div class="col-md-3 col-6 order-1 input-wrapper">
+                  <v-input placeholder="Дата рождения"></v-input>
+                </div>
+                <div class="col-md-6 col-12 order-2 input-wrapper">
+                  <v-input placeholder="Место рождения"></v-input>
+                </div>
+                <div class="col-md-3 col-6 order-3 input-wrapper">
+                  <v-input placeholder="Серия паспорта"></v-input>
+                </div>
+                <div class="col-md-3 col-6 order-4 input-wrapper">
+                  <v-input placeholder="Номер паспорта"></v-input>
+                </div>
+                <div class="col-md-3 col-6 order-6 order-md-5 input-wrapper">
+                  <v-input placeholder="Дата выдачи"></v-input>
+                </div>
+                <div class="col-md-3 col-6 order-7 order-md-6 input-wrapper">
+                  <v-input placeholder="Код подразделения"></v-input>
+                </div>
+                <div
+                  :class="{ 'order-5': pageWidth < 768 }"
+                  class="col-12 order-md-7 input-wrapper"
+                >
+                  <v-input placeholder="Кем выдан"></v-input>
+                </div>
+              </b-row>
+
+              <div>
+                <custom-input>
+                  <input type="checkbox" />
+                </custom-input>
+                Я даю своё согласие на
+                <a href="" class="btn-link">обработку персональных данных</a>
+              </div>
+            </template>
+
+            <template v-slot:button-next>
+              <button class="form-reg__button _add" @click="addStep">
+                далее
+              </button>
+            </template>
+            <template v-slot:button-prev>
+              <button class="form-reg__button _dec" @click="decStep">
+                назад
+              </button>
+            </template>
+          </step-30-70> -->
+
+          <!-- <step-50-50
+            class="step step-2"
+            v-show="currentStep === 2"
+            :stepNum="2"
+            :amountSteps="amountSteps"
+          >
+            <template v-slot:title>Второй шаг</template>
+            <template v-slot:button-next>
+              <button class="form-reg__button _add" @click="addStep">
+                далее
+              </button>
+            </template>
+            <template v-slot:button-prev>
+              <button class="form-reg__button _dec" @click="decStep">
+                назад
+              </button>
+            </template>
+            <template v-slot:col1-content>
+              <div>
+                <tit-h3 v-if="pageWidth > 768"
+                  >Информация об ИНН Российской Федерации</tit-h3
+                >
+                <tit-h3 v-else>Информация об ИНН РФ</tit-h3>
+
+                <label for="innRFY" class="fw-bold mb-4">
+                  <custom-input>
+                    <input type="radio" checked name="innRF" id="innRFY" />
+                  </custom-input>
+
+                  Являюсь налоговым резидентом Российской Федерации
+                </label>
+                <div class="input-wrapper mb-2">
+                  <v-input :placeholder="INNplaceholder"></v-input>
+                </div>
+                <div class="text-end">
+                  <v-link> Узнайте свой ИНН </v-link>
+                </div>
+
+                <v-text>
+                  <custom-input class="me-2">
+                    <input type="checkbox" name="" id="" />
+                  </custom-input>
+                  Подтверждаю, что не являюсь резидентом иного государства
+                </v-text>
+              </div>
+            </template>
+            <template v-slot:col2-content>
+              <div class="form-reg__disabled">
+                <tit-h3 v-if="pageWidth > 768"
+                  >Отсутствие ИНН Российской Федерации</tit-h3
+                >
+                <tit-h3 v-else>Отсутствие ИНН РФ</tit-h3>
+
+                <label for="innRFN">
+                  <custom-input>
+                    <input type="radio" name="innRF" id="innRFN" />
+                  </custom-input>
+                  Предоставить ИНН не имею возможности
+                </label>
+              </div>
+            </template>
+          </step-50-50> -->
+
+          <!-- <step-30-70
+            class="step step-3"
+            v-show="currentStep === 3"
+            :stepNum="3"
+            :amountSteps="amountSteps"
+          >
+            <template v-slot:title> Третий шаг </template>
+            <template v-slot:button-next>
+              <button class="form-reg__button _add" @click="addStep">
+                далее
+              </button>
+            </template>
+            <template v-slot:button-prev>
+              <button class="form-reg__button _dec" @click="decStep">
+                назад
+              </button>
+            </template>
+
+            <template v-slot:col1-content>
+              <tit-h3>Контактная информация</tit-h3>
+
+              <div class="input-wrapper form-inputs__row">
+                <v-input placeholder="Мобильный телефон"></v-input>
+              </div>
+              <div class="input-wrapper form-inputs__row">
+                <v-input
+                  placeholder="Домашний телефон (необязательно)"
+                ></v-input>
+              </div>
+              <div class="input-wrapper form-inputs__row">
+                <v-input
+                  placeholder="Рабочий телефон (необязательно)"
+                ></v-input>
+              </div>
+              <div class="input-wrapper">
+                <v-input placeholder="Email"></v-input>
+              </div>
+            </template>
+            <template v-slot:col2-content>
+              <tit-h3>Адресные данные</tit-h3>
+
+              <div>
+                <div
+                  class="input-wrapper mb-3"
+                  :class="{ 'mb-4': registerAddresInputsVisible }"
+                >
+                  <v-input placeholder="Адрес регистрации"></v-input>
+                </div>
+
+                <div
+                  class="d-flex flex-column"
+                  v-if="registerAddresInputsVisible"
+                >
+                  <div
+                    class="
+                      form-inputs__row
+                      ms-0
+                      me-0
+                      d-flex
+                      flex-nowrap
+                      justify-content-between
+                      gap-3
+                    "
+                  >
+                    <v-input placeholder="Регион" class="col-8"></v-input>
+                    <v-select class="w-100" :options="optionArray"> </v-select>
+                  </div>
+                  <div
+                    class="
+                      form-inputs__row
+                      ms-0
+                      me-0
+                      d-flex
+                      flex-nowrap
+                      justify-content-between
+                      gap-3
+                    "
+                  >
+                    <v-input
+                      placeholder="Район в регионе"
+                      class="col-8"
+                    ></v-input>
+                    <v-select class="w-100" :options="optionArray"> </v-select>
+                  </div>
+                  <div
+                    class="
+                      form-inputs__row
+                      ms-0
+                      me-0
+                      d-flex
+                      flex-nowrap
+                      justify-content-between
+                      gap-3
+                    "
+                  >
+                    <v-input placeholder="Город" class="col-8"></v-input>
+                    <v-select class="w-100" :options="optionArray"> </v-select>
+                  </div>
+                  <div
+                    class="
+                      form-inputs__row
+                      ms-0
+                      me-0
+                      d-flex
+                      flex-nowrap
+                      justify-content-between
+                      gap-3
+                    "
+                  >
+                    <v-input
+                      placeholder="Налелённый пункт"
+                      class="col-8"
+                    ></v-input>
+                    <v-select class="w-100" :options="optionArray"> </v-select>
+                  </div>
+                  <div
+                    class="
+                      form-inputs__row
+                      ms-0
+                      me-0
+                      d-flex
+                      flex-nowrap
+                      justify-content-between
+                      gap-3
+                    "
+                  >
+                    <v-input placeholder="Улица" class="col-8"></v-input>
+                    <v-select class="w-100" :options="optionArray"> </v-select>
+                  </div>
+
+                  <div
+                    class="
+                      d-flex
+                      flex-wrap
+                      justify-content-between
+                      form-inputs__row
+                    "
+                  >
+                    <div class="bottom-inputs">
+                      <v-input placeholder="Дом" class=""></v-input>
+                      <v-input placeholder="Корпус" class=""></v-input>
+                      <v-input placeholder="Квартира" class=""></v-input>
+                      <v-input placeholder="Индекс" class=""></v-input>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap-reverse">
+                  <v-text class="col-md-9" @click="visibleRegisterAddresInputs">
+                    <custom-input>
+                      <input type="checkbox" name="" id="" />
+                    </custom-input>
+                    Адрес регистрации совпадает с адресом проживания
+                  </v-text>
+
+                  <button
+                    @click="visibleRegisterAddresInputs"
+                    class="v-link col-md-3 col-12 text-end"
+                  >
+                    <span v-if="!registerAddresInputsVisible">Изменить</span>
+                    <span v-else>Скрыть</span>
+                    поля
+                  </button>
+                </div>
+              </div>
+              <hr class="mb-4" />
+              
+              <div>
+                <div
+                  class="input-wrapper mb-2"
+                  :class="{ 'mb-4': lifeAddresInputsVisible }"
+                >
+                  <v-input placeholder="Адрес проживания"></v-input>
+                </div>
+
+                <div class="d-flex flex-column" v-if="lifeAddresInputsVisible">
+                  <div
+                    class="
+                      form-inputs__row
+                      ms-0
+                      me-0
+                      d-flex
+                      flex-nowrap
+                      justify-content-between
+                      gap-3
+                    "
+                  >
+                    <v-input placeholder="Регион" class="col-8"></v-input>
+                    <v-select
+                      class="w-100"
+                      :options="optionArray"
+                      v-model="this.select"
+                    >
+                    </v-select>
+                  </div>
+                  <div
+                    class="
+                      form-inputs__row
+                      ms-0
+                      me-0
+                      d-flex
+                      flex-nowrap
+                      justify-content-between
+                      gap-3
+                    "
+                  >
+                    <v-input
+                      placeholder="Район в регионе"
+                      class="col-8"
+                    ></v-input>
+                    <v-select class="w-100" :options="optionArray"> </v-select>
+                  </div>
+                  <div
+                    class="
+                      form-inputs__row
+                      ms-0
+                      me-0
+                      d-flex
+                      flex-nowrap
+                      justify-content-between
+                      gap-3
+                    "
+                  >
+                    <v-input placeholder="Город" class="col-8"></v-input>
+                    <v-select class="w-100" :options="optionArray"> </v-select>
+                  </div>
+                  <div
+                    class="
+                      form-inputs__row
+                      ms-0
+                      me-0
+                      d-flex
+                      flex-nowrap
+                      justify-content-between
+                      gap-3
+                    "
+                  >
+                    <v-input
+                      placeholder="Налелённый пункт"
+                      class="col-8"
+                    ></v-input>
+                    <v-select class="w-100" :options="optionArray"> </v-select>
+                  </div>
+                  <div
+                    class="
+                      form-inputs__row
+                      ms-0
+                      me-0
+                      d-flex
+                      flex-nowrap
+                      justify-content-between
+                      gap-3
+                    "
+                  >
+                    <v-input placeholder="Улица" class="col-8"></v-input>
+                    <v-select class="w-100" :options="optionArray"> </v-select>
+                  </div>
+
+                  <div class="bottom-inputs">
+                    <v-input placeholder="Дом" class=""></v-input>
+                    <v-input placeholder="Корпус" class=""></v-input>
+                    <v-input placeholder="Квартира" class=""></v-input>
+                    <v-input placeholder="Индекс" class=""></v-input>
+                  </div>
+                </div>
+
+                <div class="text-end">
+                  <button @click="visibleLifeAddresInputs" class="v-link">
+                    <span v-if="!lifeAddresInputsVisible">Изменить</span>
+                    <span v-else>Скрыть</span>
+                    поля
+                  </button>
+                </div>
+              </div>
+            </template>
+          </step-30-70> -->
+
+          <!-- <step-50-50
+            class="step step-4"
+            v-show="currentStep === 4"
+            :stepNum="4"
+            :amountSteps="amountSteps"
+          >
+            <template v-slot:title>Четвёртый шаг</template>
+            <template v-slot:button-next>
+              <button class="form-reg__button _add" @click="addStep">
+                далее
+              </button>
+            </template>
+            <template v-slot:button-prev>
+              <button class="form-reg__button _dec" @click="decStep">
+                назад
+              </button>
+            </template>
+            <template v-slot:col1-content>
+              <div class="questions">
+                <div class="questions__item">
+                  <v-text
+                    class="
+                      d-flex
+                      justify-content-between
+                      align-items-center
+                      mb-1
+                    "
+                  >
+                    <div class="fw-bold">Вопрос 1</div>
+                    <div>
+                      <label for="question1-YES">
+                        <custom-input class="ms-2 me-2">
+                          <input
+                            type="radio"
+                            checked
+                            name="question1"
+                            id="question1-YES"
+                          /> </custom-input
+                        >Нет
+                      </label>
+                      <label for="question1-NO">
+                        <custom-input class="ms-3 me-2">
+                          <input
+                            type="radio"
+                            name="question1"
+                            id="question1-NO"
+                          /> </custom-input
+                        >Да
+                      </label>
+                    </div>
+                  </v-text>
+                  <v-text class="questions__text">
+                    Имеете ли Вы регистрацию, место жительства или место
+                    нахождения в государстве (на территории), которое (которая)
+                    не выполняет рекомендации ФАТФ (Исламская республика Иран,
+                    Корейская Народно-демократическая республика), либо
+                    используете счета в банке, зарегистрированном в таком
+                    государстве (на такой территории)?
+                  </v-text>
+                </div>
+                <div class="questions__item">
+                  <v-text
+                    class="
+                      d-flex
+                      justify-content-between
+                      align-items-center
+                      mb-1
+                    "
+                  >
+                    <div class="fw-bold">Вопрос 2</div>
+                    <div>
+                      <label for="questio2-YES">
+                        <custom-input class="ms-2 me-2">
+                          <input
+                            type="radio"
+                            checked
+                            name="questio2"
+                            id="questio2-YES"
+                          /> </custom-input
+                        >Нет
+                      </label>
+                      <label for="questio2-NO">
+                        <custom-input class="ms-3 me-2">
+                          <input
+                            type="radio"
+                            name="questio2"
+                            id="questio2-NO"
+                          /> </custom-input
+                        >Да
+                      </label>
+                    </div>
+                  </v-text>
+                  <v-text class="questions__text">
+                    Являетесь ли Вы иностранным публичным должностным лицом,
+                    должностным лицом публичных международных организаций,
+                    лицом, занимающим определенные государственные должности в
+                    РФ, должности в государственных федеральных службах,
+                    корпорациях и иных организациях, назначение на которые и
+                    освобождение от которых осуществляются Президентом РФ или
+                    Правительством РФ?
+                  </v-text>
+                </div>
+              </div>
+            </template>
+            <template v-slot:col2-content>
+              <div class="questions">
+                <div class="questions__item">
+                  <v-text
+                    class="
+                      d-flex
+                      justify-content-between
+                      align-items-center
+                      mb-1
+                    "
+                  >
+                    <div class="fw-bold">Вопрос 3</div>
+                    <div>
+                      <label for="question3-YES">
+                        <custom-input class="ms-2 me-2">
+                          <input
+                            type="radio"
+                            checked
+                            name="question3"
+                            id="question3-YES"
+                          /> </custom-input
+                        >Нет
+                      </label>
+                      <label for="question3-NO">
+                        <custom-input class="ms-3 me-2">
+                          <input
+                            type="radio"
+                            name="question3"
+                            id="question3-NO"
+                          /> </custom-input
+                        >Да
+                      </label>
+                    </div>
+                  </v-text>
+                  <v-text class="questions__text">
+                    Являетесь ли Вы супругом, близким родственником (по прямой
+                    линии (родителем, ребенком, дедушкой, внуком), усыновителем,
+                    усыновленным, полнородным / неполнородным (общий отец /
+                    мать) братом / сестрой, должностного лица в РФ /
+                    иностранного, должностного лица в публичных международных
+                    организациях или действуете в его интересах?
+                  </v-text>
+                </div>
+                <div class="questions__item">
+                  <v-text
+                    class="
+                      d-flex
+                      justify-content-between
+                      align-items-center
+                      mb-1
+                    "
+                  >
+                    <div class="fw-bold">Вопрос 4</div>
+                    <div>
+                      <label for="question4-YES">
+                        <custom-input class="ms-2 me-2">
+                          <input
+                            type="radio"
+                            checked
+                            name="question4"
+                            id="question4-YES"
+                          /> </custom-input
+                        >Нет
+                      </label>
+                      <label for="question4-NO">
+                        <custom-input class="ms-3 me-2">
+                          <input
+                            type="radio"
+                            name="question4"
+                            id="question4-NO"
+                          /> </custom-input
+                        >Да
+                      </label>
+                    </div>
+                  </v-text>
+                  <v-text class="questions__text">
+                    Действуете ли Вы в интересах третьего лица
+                    (выгодоприобретателя) / планируете ли Вы совершать операции
+                    к выгоде других лиц (выгодоприобретателей), либо действовать
+                    в интересах третьих лиц?
+                  </v-text>
+                </div>
+                <div class="questions__item">
+                  <v-text
+                    class="
+                      d-flex
+                      justify-content-between
+                      align-items-center
+                      mb-1
+                    "
+                  >
+                    <div class="fw-bold">Вопрос 5</div>
+                    <div>
+                      <label for="question5-YES">
+                        <custom-input class="ms-2 me-2">
+                          <input
+                            type="radio"
+                            checked
+                            name="question5"
+                            id="question5-YES"
+                          /> </custom-input
+                        >Нет
+                      </label>
+                      <label for="question5-NO">
+                        <custom-input class="ms-3 me-2">
+                          <input
+                            type="radio"
+                            name="question5"
+                            id="question5-NO"
+                          /> </custom-input
+                        >Да
+                      </label>
+                    </div>
+                  </v-text>
+                  <v-text class="questions__text">
+                    Есть ли у Вас бенефициарный владелец (лицо, которое имеет
+                    возможность контролировать Ваши действия)?
+                  </v-text>
+                </div>
+              </div>
+            </template>
+          </step-50-50> -->
+
+          <!-- <step-50-50
+            class="step step-5"
+            v-show="currentStep === 5"
+            :stepNum="5"
+            :amountSteps="amountSteps"
+          >
+            <template v-slot:button-next>
+              <button class="form-reg__button _add" @click="addStep">
+                далее
+              </button>
+            </template>
+            <template v-slot:button-prev>
+              <button class="form-reg__button _dec" @click="decStep">
+                назад
+              </button>
+            </template>
+
+            <template v-slot:title> Пятый шаг </template>
+
+            <template v-slot:col1-content>
+              <tit-h3> Подтвердите номер мобильного телефона </tit-h3>
+              <v-text class="">
+                SMS-код для подтверждения Вашего мобильного телефонабыл
+                направлен на указанный Вами номер:
+              </v-text>
+
+              <div>
+                <v-input
+                  class="update-input col-6 col-md-6"
+                  value="+7 (916) 321-45-12"
+                  :disabled="!upadateTelInput"
+                  ref="updateTel"
+                >
+                </v-input>
+                <button
+                  class="v-link d-inline-block col-6 col-md-6 text-end"
+                  @click="upadateTelInput = upadateTelInput ? false : true"
+                >
+                  <span v-if="!upadateTelInput">Изменить</span>
+                  <span v-else>Сохранить</span>
+                  телефон
+                </button>
+              </div>
+              <b-row class="m-0">
+                <v-input
+                  placeholder="Введен некорректный SMS-код"
+                  class="col-7 input-confirmation unvalide"
+                >
+                </v-input>
+                <div class="col-5 d-flex justify-content-end p-0">
+                  <v-button class="_add col-md-11 col-10" disabled>
+                    Подтвердить
+                  </v-button>
+                </div>
+              </b-row>
+              <v-text class="mb-0"> Выслать новый SMS-код через: </v-text>
+
+              <button class="v-link text-start" disabled>
+                Отправить код повторно
+              </button>
+            </template>
+
+            <template v-slot:col2-content>
+              <tit-h3> Подтвердите E-mail адрес </tit-h3>
+              <v-text>
+                Email-код для подтверждения Вашей электронной почтыбыл направлен
+                на указанный Вами E-mail адрес:
+              </v-text>
+
+              <div>
+                <v-input
+                  class="update-input col-6 col-md-6"
+                  value="panov.ivan@mail.ru"
+                  :disabled="!upadateEmailInput"
+                  ref="updateTel"
+                >
+                </v-input>
+                <button
+                  class="v-link d-inline-block col-6 col-md-6 text-end"
+                  @click="upadateEmailInput = upadateEmailInput ? false : true"
+                >
+                  <span v-if="!upadateEmailInput">Изменить</span>
+                  <span v-else>Сохранить</span>
+                  почту
+                </button>
+              </div>
+              <b-row class="m-0">
+                <v-input
+                  placeholder="Ввести Email-код"
+                  class="col-7 input-confirmation"
+                >
+                </v-input>
+                <div class="col-5 d-flex justify-content-end p-0">
+                  <v-button class="_add col-md-11 col-10">
+                    Подтвердить
+                  </v-button>
+                </div>
+              </b-row>
+              <v-text class="mb-0"> Выслать новый Email-код через: : </v-text>
+
+              <button class="v-link text-start">Отправить код повторно</button>
+            </template>
+          </step-50-50> -->
+
+          <!-- <step-30-70
+            class="step step-6"
+            v-show="currentStep === 6"
+            :stepNum="6"
+            :amountSteps="amountSteps"
+          >
+            <template v-slot:button-next>
+              <button class="form-reg__button _add" @click="addStep">
+                далее
+              </button>
+            </template>
+            <template v-slot:button-prev>
+              <button class="form-reg__button _dec" @click="decStep">
+                назад
+              </button>
+            </template>
+            <template v-slot:title>Шестой шаг</template>
+
+            <template v-slot:col1-content>
+              <tit-h3> Выберите диапазон пер-вого пенсионного взноса </tit-h3>
+
+              <div>
+                <div class="mb-4">
+                  <v-text>
+                    <custom-input>
+                      <input
+                        type="radio"
+                        checked
+                        name="range"
+                        id=""
+                        @click="conditionArray = conditions1Array"
+                      />
+                    </custom-input>
+                    от 1 000 до 60 000 ₽
+                  </v-text>
+                  <v-text>
+                    <custom-input>
+                      <input
+                        type="radio"
+                        name="range"
+                        id=""
+                        @click="conditionArray = conditions2Array"
+                      />
+                    </custom-input>
+                    от 60 000 до 120 000 ₽
+                  </v-text>
+                  <v-text>
+                    <custom-input>
+                      <input
+                        type="radio"
+                        name="range"
+                        id=""
+                        @click="conditionArray = conditions3Array"
+                      />
+                    </custom-input>
+                    от 120 000 ₽ и выше
+                  </v-text>
+                </div>
+
+                <v-text>
+                  Точный размер первого взноса определяется в дальнейшем при
+                  совершении платежа
+                </v-text>
+              </div>
+            </template>
+            <template v-slot:col2-content>
+              <tit-h3> Условия досрочного расторжения Договора </tit-h3>
+              <v-text>
+                Коэффициенты, используемые для расчета выкупной суммы при
+                досрочном расторжении Договора
+              </v-text>
+
+              <div class="conditions-table">
+                <b-row class="conditions-table__row">
+                  <div class="conditions-table__item _text">
+                    <div>
+                      <span>Период</span> с момента вступления Договора в силу
+                    </div>
+                  </div>
+                  <div class="conditions-table__item _text">до 1 года</div>
+                  <div class="conditions-table__item _text">от 1 до 2 лет</div>
+                  <div class="conditions-table__item _text">от 2 до 3 лет</div>
+                  <div class="conditions-table__item _text">от 3 лет</div>
+                </b-row>
+                <b-row class="conditions-table__row">
+                  <div class="conditions-table__item _text">
+                    <div>
+                      <span> Коэффициент К1, </span>применяемыйк сумме
+                      пенсионных взносов
+                    </div>
+                  </div>
+                  <div class="conditions-table__item _num">
+                    {{ conditionArray[0][0] }}
+                  </div>
+                  <div class="conditions-table__item _num">
+                    {{ conditionArray[0][1] }}
+                  </div>
+                  <div class="conditions-table__item _num">
+                    {{ conditionArray[0][2] }}
+                  </div>
+                  <div class="conditions-table__item _num">
+                    {{ conditionArray[0][3] }}
+                  </div>
+                </b-row>
+                <b-row class="conditions-table__row">
+                  <div class="conditions-table__item _text">
+                    <div>
+                      <span> Коэффициент К2, </span>применяемый к
+                      инвестиционному доходу
+                    </div>
+                  </div>
+                  <div class="conditions-table__item _num">
+                    {{ conditionArray[1][0] }}
+                  </div>
+                  <div class="conditions-table__item _num">
+                    {{ conditionArray[1][1] }}
+                  </div>
+                  <div class="conditions-table__item _num">
+                    {{ conditionArray[1][2] }}
+                  </div>
+                  <div class="conditions-table__item _num">
+                    {{ conditionArray[1][3] }}
+                  </div>
+                </b-row>
+              </div>
+            </template>
+          </step-30-70> -->
+
+          <!-- <step-50-50
+            class="step step-7"
+            :class="{'visible-1-final':(pageWidth < 768 && current7Step === 0)}"
+            v-show="currentStep === 7"
+            :stepNum="7"
+            :amountSteps="amountSteps"
+          >
+            <template v-slot:button-next>
+              <button class="form-reg__button _add" @click="add7step">
+                далее
+              </button>
+            </template>
+            <template v-slot:button-prev>
+              <button class="form-reg__button _dec" @click="decStep">
+                назад
+              </button>
+            </template>
+
+            <template v-slot:title> Седьмой шаг </template>
+
+            <template v-slot:col1-content >
+              <div>
+                <tit-h3>Ознакомление с документами</tit-h3>
+                <v-text>
+                  Проверьте корректность указанных личных сведений, а также
+                  ознакомьтесь с <v-link>текстом Договора</v-link> и другими
+                  документами Фонда:
+                </v-text>
+
+                <ul>
+                  <v-link>
+                    <li>Ключевым информационным документом;</li>
+                  </v-link>
+                  <v-link>
+                    <li>Пенсионными правилами;</li>
+                  </v-link>
+                  <v-link>
+                    <li>Уставом Фонда.</li>
+                  </v-link>
+                </ul>
+
+                <label for="confirmation" class="d-flex mb-3">
+                  <custom-input class="col-1">
+                    <input type="checkbox" name="" id="confirmation" />
+                  </custom-input>
+                  Подтверждаю, что данные, приведенные мной, являются полными и
+                  достоверными. С документами ознакомлен (а) и принимаю условия
+                  Договора НПО.
+                </label>
+                <div class="text-end">
+                  <v-button class="ps-3 pe-3 add">Выслать SMS-код</v-button>
+                </div>
+              </div>
+            </template>
+
+            <template v-slot:col2-content >
+              <div v-show="!(pageWidth < 768 && current7Step === 0)">
+                <tit-h3> Подтверждение данных </tit-h3>
+                <v-text class="mb-4">
+                  SMS-код для подтверждения предоставленных данныхи
+                  подтверждения ознакомления с документами будет направленна Ваш
+                  номер мобильного телефона
+                </v-text>
+
+                <b-row class="me-0 ms-0 mb-4">
+                  <v-input
+                    placeholder="Ввести SMS-код "
+                    class="col-7 input-confirmation"
+                  >
+                  </v-input>
+                  <div class="col-5 d-flex justify-content-end p-0">
+                    <v-button class="_add col-md-11 col-10">
+                      Подтвердить
+                    </v-button>
+                  </div>
+                </b-row>
+                <v-text class="mb-0">
+                  Если Вы не получили SMS-код Вы можете запросить его повторно
+                  через:
+                </v-text>
+
+                <button class="v-link text-start">
+                  Отправить код повторно
+                </button>
+              </div>
+            </template>
+          </step-50-50> -->
+          
+          <!-- <step-100
+            class="step step-7.1"
+            v-show="currentStep === 8"
+            :stepNum="7"
+            :amountSteps="amountSteps"
+          >
+            <template v-slot:button-next>
+              <button class="form-reg__button _add" @click="addStep">
+                далее
+              </button>
+            </template>
+            <template v-slot:button-prev>
+              <button class="form-reg__button _dec" @click="decStep">
+                назад
+              </button>
+            </template>
+            <template v-slot:title>
+              Седьмой шаг
+            </template>
+            <template v-slot:content>
+              <div class="step-final">
+                <tit-h3>
+                  Поздравляем Вас с оформлением пенсионного Договора!
+                </tit-h3>
+                <v-text>
+                  Договор и Согласие на обработку персональных данных направлены Вам на Ваш E-mail.
+                </v-text>
+
+                <v-text>
+                  Договор вступит в силу после поступления первого пенсионного взноса в размере не менее установленного Договором.
+                </v-text>
+
+                <v-text class="mb-5">
+                  Для внесения первого пенсионного взноса перейдите на платежную страницу Банка, нажав на кнопку «Оплатить».
+                </v-text>
+
+                <a class="v-button add pe-5 ps-5">Оплатить</a>
+              </div>
+            </template>
+          </step-100> -->
+        </form>
+      </b-container>
+
+      <form-footer></form-footer>
+    </div>
+  </div>
+</template>
+
+<script>
+import "@/assets/fonts.css";
+import FormHeader from "./components/form-header.vue";
+import FormFooter from "./components/form-footer.vue";
+
+export default {
+  components: {
+    FormHeader,
+    FormFooter,
+  },
+};
+</script>
+
+<style lang="scss">
+.order-6 {
+  order: 6 !important;
+}
+.order-7 {
+  order: 7 !important;
+}
+@media (min-width: 768px) {
+  .order-md-6 {
+    order: 6 !important;
+  }
+  .order-md-7 {
+    order: 7 !important;
+  }
+}
+
+
+
+
+
+.step-4 {
+  @media (max-width: 768px) {
+    .form-reg__col {
+      box-shadow: none !important;
+      background: none;
+      padding: 0 !important;
+      margin: 0;
+    }
+    .form-reg__row {
+      gap: 0;
+    }
+  }
+}
+
+.step-5 {
+  .update-input:disabled {
+    background: none;
+    border: none;
+    font-size: 14px;
+    line-height: 18px;
+    padding-left: 0;
+    font-weight: 700;
+    font-family: "Inter";
+    color: rgba(0, 0, 0, 0.7);
+
+    @media (max-width: 567px) {
+      font-size: 12px;
+    }
+  }
+  .update-input {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 700;
+    font-family: "Inter";
+    color: rgba(0, 0, 0, 0.7);
+    @media (max-width: 567px) {
+      font-size: 12px;
+    }
+  }
+  .input-confirmation.unvalide {
+    background: #f6f8f9;
+    border: 1px solid #c4c4c4;
+  }
+
+  .input-confirmation.unvalide::placeholder {
+    color: #de231b;
+    font-weight: 500;
+  }
+}
+.questions {
+  &__text {
+    text-align: justify;
+
+    @media (max-width: 567px) {
+      font-size: 10px;
+    }
+  }
+  &__item {
+    @media (max-width: 768px) {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: #ffffff;
+      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.step-final {
+  height: 100%;
+  padding-right: 50%;
+  background: url('~@/assets/images/final.svg') no-repeat right;
+  background-size: contain;
+  a.v-button {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a.v-button:hover {
+    color: #fff;
+  }
+}
+
+.conditions-table {
+  display: flex;
+  row-gap: 20px;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+  &__row {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__item {
+    font-family: "Oswald";
+    background: #f6f8f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      font-family: "Inter", sans-serif;
+    }
+  }
+  &__item._text {
+    width: calc(15% - 10px);
+    font-size: 14px;
+    font-weight: 700;
+
+    @media (max-width: 768px) {
+      width: calc(25% - 10px);
+      padding: 10px;
+      font-weight: 500;
+    }
+    @media (max-width: 567px) {
+      font-size: 10px;
+      width: calc(25% - 5px);
+    }
+  }
+  &__item._text:first-child {
+    font-family: "Inter";
+    font-size: 12px;
+    font-weight: 400;
+    padding: 15px;
+    width: calc(35% - 10px);
+    text-align: left;
+
+    @media (max-width: 768px) {
+      padding: 0 0 10px 0;
+      display: block;
+      background: none;
+      width: 100%;
+      text-align-last: left;
+      span {
+        display: block;
+        font-size: 14px;
+      }
+    }
+    @media (max-width: 567px) {
+      font-size: 10px;
+      span {
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__item._num {
+    @media (max-width: 768px) {
+      width: calc(25% - 10px);
+      padding: 10px;
+      line-height: 2.5;
+      font-size: 16px;
+    }
+    width: calc(15% - 10px);
+    font-size: 24px;
+    color: rgba(0, 135, 212, 0.8);
+    font-weight: 500;
+    @media (max-width: 567px) {
+      width: calc(25% - 5px);
+    }
+  }
+}
+
+.step-7.visible-1-final {
+  .from-reg__col2 {
+    display: none !important;
+  }
+  .from-reg__col1 {
+    display: block !important;
+  }
+}
+.step-7 {
+  .from-reg__col2 {
+    display: block !important;
+  }
+  .from-reg__col1 {
+    display: none !important;
+  }
+}
+
+.wrapper {
+  background: #f6f8f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btn-link {
+  color: #1d85c9 !important;
+
+  @media (max-width: 567px) {
+    text-decoration: none !important;
+    cursor: pointer !important;
+  }
+}
+.tit-h1 {
+  font-family: "Oswald";
+  font-weight: 300;
+}
+
+.form-reg {
+  &__disabled {
+    opacity: 0.6;
+  }
+  flex-grow: 1;
+  padding: 50px 0 80px 0;
+  @media (max-width: 567px) {
+    padding: 30px 15px 80px 15px;
+  }
+}
+
+.input-wrapper {
+  input {
+    width: 100%;
+  }
+}
+.step__row {
+  margin-bottom: 30px;
+}
+.btn-link {
+  display: inline !important;
+}
+
+.form-inputs__row {
+  margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.form-reg__button._add {
+  background: #0087d4;
+  color: #fff;
+}
+.form-reg__button._add:hover,
+.form-reg__button._add:focus {
+  background: #0275b7;
+}
+
+.form-reg__button {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  padding: 10px 25px;
+  background: #fff;
+  color: rgba(0, 0, 0, 0.7);
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+  border: none;
+  transition: 0.1s;
+}
+.form-reg__button:hover,
+.form-reg__button:focus {
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.7));
+  background: var(--bs-gray-200);
+}
+</style>
